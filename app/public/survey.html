@@ -73,6 +73,15 @@
 
   </div>
 
+  <div id="modalBg">
+    <div id="modalMsg">
+      <button type="button" id="modalClose" aria-label="Close">&times;</button>
+      <h1>Best Match - <span id="friendName">John Doe</span></h1>
+      <hr>
+      <img id="friendPic" src="https://cdn3.iconfinder.com/data/icons/pixel-perfect-at-24px-volume-5/24/2097-512.png" aria-labelledby="friendName">
+    </div>
+  </div>
+
 
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -120,19 +129,28 @@
 
       $.post("/api/friends", newFriend, function(data) {
 
-        console.log(data);
+        // Add matched friend's name to the DOM
+        $("#friendName").text(data.name);
+
+        if(!data.photo) {
+          $("#friendPic").attr("src", "https://cdn3.iconfinder.com/data/icons/pixel-perfect-at-24px-volume-5/24/2097-512.png");
+        }
+        else {
+          $("#friendPic").attr("src", data.photo);
+        }
+
+        // Show the modal
+        $("#modalBg").css("display", "block");
       });
-
-
     });
 
 
-
-
-
+    $("#modalClose").on("click", function(event) {
+      event.preventDefault();
+      $("#modalBg").css("display", "none");
+    });
 
   </script>
 
 </body>
-
 </html>
