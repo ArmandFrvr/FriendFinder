@@ -74,9 +74,9 @@
   </div>
 
   <div id="modalBg">
-    <div id="modalMsg">
+    <div id="modalMsg" tabindex=-1 role="dialog" aria-labelledby="modalHeader" aria-modal="true">
       <button type="button" id="modalClose" aria-label="Close">&times;</button>
-      <h1>Best Match - <span id="friendName">John Doe</span></h1>
+      <h1 id="modalHeader">Best Match - <span id="friendName">John Doe</span></h1>
       <hr>
       <img id="friendPic" src="https://cdn3.iconfinder.com/data/icons/pixel-perfect-at-24px-volume-5/24/2097-512.png" aria-labelledby="friendName">
     </div>
@@ -141,7 +141,7 @@
 
         // Show the modal
         $("#modalBg").css("display", "block");
-        $("#modalClose").focus();
+        $("#modalMsg").focus();
       });
     });
 
