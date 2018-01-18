@@ -112,7 +112,7 @@
 
       var newFriend = {
         name: $("#name").val().replace(/[^a-zA-Z \-0-9]+/g, ''),
-        photo: $("#photo").val().replace(/[^a-zA-Z#+=@.!_?/%\-0-9]+/g, ''),
+        photo: $("#photo").val().replace(/[^a-zA-Z#+=:@.!_?/%\-0-9]+/g, ''),
         scores: [
           $("#q1").val(),
           $("#q2").val(),
@@ -141,13 +141,15 @@
 
         // Show the modal
         $("#modalBg").css("display", "block");
+        $("#modalClose").focus();
       });
     });
 
-
+    // When closing modal, set focus back to the first question in case they want to change answers.
     $("#modalClose").on("click", function(event) {
       event.preventDefault();
       $("#modalBg").css("display", "none");
+      $("#q1").focus();
     });
 
   </script>
