@@ -85,6 +85,7 @@
 
   <script type="text/javascript">
 
+    // Build form options
     let options = '<option value=""></option>' +
       '<option value="1">1 (Strongly Disagree)</option>' +
       '<option value="2">2</option>' +
@@ -95,6 +96,37 @@
     $(document).ready(function() {
       $("select").append(options);
     });
+
+    // Submit button
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+
+      var newFriend = {
+        name: $("#name").val().replace(/[^a-zA-Z \-0-9]+/g, ''),
+        photo: $("#photo").val().replace(/[^a-zA-Z#+=@.!_?/%\-0-9]+/g, ''),
+        scores: [
+          $("q1").val(),
+          $("q2").val(),
+          $("q3").val(),
+          $("q4").val(),
+          $("q5").val(),
+          $("q6").val(),
+          $("q7").val(),
+          $("q8").val(),
+          $("q9").val(),
+          $("q10").val()
+        ]
+      };
+
+      $.post("/api/friends", newFriend, function(data) {
+        console.log(data);
+      })
+
+
+    })
+
+
+
 
 
 
