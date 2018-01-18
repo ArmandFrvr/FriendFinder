@@ -9,6 +9,7 @@ var port = process.env.PORT || 3002;
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
+app.use(express.static("./app/public/assets"));
 
 
 // Routes
