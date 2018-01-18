@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+  <meta charset = "UTF-8">
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Amaranth:700|Open+Sans" rel="stylesheet">
+  <title>Friend Finder - Survey</title>
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>Friend Finder Survey</h1>
+    <i>All fields are required.</i>
+    <hr>
+
+    <form>
+      <h2>About You</h2>
+      <label for="name">Name</label>
+      <input id="name" type="text" required>
+
+      <label for="photo">Link to Photo Image</label>
+      <input id="photo" type="text" required>
+      <hr>
+
+      <h2>Questions</h2>
+
+      <label for="q1">I like to play video games.</label>
+      <select id="q1" required></select>
+
+      <label for="q2">It annoys me when my friends complain about stuff.</label>
+      <select id="q2" required></select>
+
+      <label for="q3">I like cats.</label>
+      <select id="q3" required></select>
+
+      <label for="q4">I consider myself a geek, nerd, or tech person.</label>
+      <select id="q4" required></select>
+
+      <label for="q5">I sometimes do silly things just because I feel like it.</label>
+      <select id="q5" required></select>
+
+      <label for="q6">I could be good friends with an LGBT person.</label>
+      <select id="q6" required></select>
+
+      <label for="q7">I'm a total extrovert.</label>
+      <select id="q7" required></select>
+
+      <label for="q8">I enjoy camping or hiking.</label>
+      <select id="q8" required></select>
+
+      <label for="q9">I like rap music.</label>
+      <select id="q9" required></select>
+
+      <label for="q10">I prefer doing free or inexpensive things when possible.</label>
+      <select id="q10" required></select>
+
+      <button type="submit" id="submit">
+        <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+        Submit
+      </button>
+
+    </form>
+
+    <hr>
+
+    <footer>
+      <p><a href="/api/friends" target="_blank">API Friends List</a> |
+         <a href="https://github.com/ArmandFrvr/FriendFinder" target="_blank">GitHub Repo</a>
+    </footer>
+
+  </div>
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+  </script>
+
+  <script src="https://use.fontawesome.com/17d34a2d31.js"></script>
+
+
+  <script type="text/javascript">
+
+    let options = '<option value=""></option>' +
+      '<option value="1">1 (Strongly Disagree)</option>' +
+      '<option value="2">2</option>' +
+      '<option value="3">3</option>' +
+      '<option value="4">4</option>' +
+      '<option value="5">5 (Strongly Agree)</option>';
+
+    $(document).ready(function() {
+      $("select").append(options);
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>
